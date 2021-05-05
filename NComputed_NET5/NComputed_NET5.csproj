@@ -17,6 +17,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\NComputed.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\NComputed\Computed.cs" Link="Computed.cs" />
     <Compile Include="..\NComputed\ComputedValueConverter.cs" Link="ComputedValueConverter.cs" />
