@@ -35,7 +35,7 @@ namespace NComputed
     /// A wrapper of an auto computed value.
     /// </summary>
     /// <typeparam name="T">Type of the contained value.</typeparam>
-    public class Computed<T> : ComputedBase
+    public class Computed<T> : ComputedBase, IDisposable
     {
         /// <summary>
         /// Creates a builder of Computed Object.
@@ -79,7 +79,7 @@ namespace NComputed
             {
                 if (func == null) throw new ArgumentNullException(nameof(func));
 
-                this.compute = o => func((TObj)o);  //TODO weak reference
+                this.compute = o => func((TObj)o);
                 return this;
             }
 
@@ -116,9 +116,10 @@ namespace NComputed
         }
 
 
-        private readonly IPropertyChangedRaisable viewModel;
+        private IPropertyChangedRaisable viewModel;
         private readonly IReadOnlyCollection<string> propertyNames;
-        private readonly Func<IPropertyChangedRaisable, T> compute;
+        private Func<IPropertyChangedRaisable, T> compute;
+        private bool disposedValue;
 
         /// <summary>
         /// Gets the name of the Computed property.
@@ -163,9 +164,8 @@ namespace NComputed
             this.propertyNames = propertyNames;
             this.compute = compute;
 
-            this._val = compute(viewModel);
+            this._val = computeVal();
 
-            //TODO weak reference
             viewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
@@ -173,12 +173,46 @@ namespace NComputed
         {
             if (!this.propertyNames.Contains(e.PropertyName)) return;
 
-            this.Value = compute(viewModel);
+            this.Value = computeVal();
+        }
+
+        private T computeVal()
+        {
+            if (this.viewModel == null) throw new ObjectDisposedException(this.GetType().Name);
+            return this.compute(this.viewModel);
         }
 
         public override string ToString()
         {
             return this.Value == null ? "" : this.Value.ToString();
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    this.compute = null;
+                    if (this.viewModel != null)
+                    {
+                        this.viewModel.PropertyChanged -= OnViewModelPropertyChanged;
+                        this.viewModel = null;
+                    }
+                }
+
+                disposedValue = true;
+            }
+        }
+
+        /// <summary>
+        /// Disposes this instance.
+        /// Note: You should call this if this instance is no longer used unused before the viewModel. 
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }
