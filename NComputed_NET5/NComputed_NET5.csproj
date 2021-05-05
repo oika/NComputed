@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
@@ -14,6 +14,7 @@
     <RepositoryUrl>https://github.com/oika/NComputed</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>mvvm computed reactive</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
