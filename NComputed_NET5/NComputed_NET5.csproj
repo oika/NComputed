@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>NComputed</AssemblyName>
+    <RootNamespace>NComputed</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\NComputed\Computed.cs" Link="Computed.cs" />
+    <Compile Include="..\NComputed\ComputedValueConverter.cs" Link="ComputedValueConverter.cs" />
+  </ItemGroup>
+
+</Project>

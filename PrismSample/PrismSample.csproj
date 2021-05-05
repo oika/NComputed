@@ -109,9 +109,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NComputed\NComputed.csproj">
+    <ProjectReference Include="..\NComputed\NComputed_NET46.csproj">
       <Project>{b39b6cc0-5b84-4bf7-a43b-a640213c60b9}</Project>
-      <Name>NComputed</Name>
+      <Name>NComputed_NET46</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
