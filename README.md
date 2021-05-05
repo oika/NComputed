@@ -19,6 +19,6 @@ Define Computed in ViewModel like this.
 
 In View, bind to this property with `ComputedValueConverter`.
 
-You can some frameworks like [Prism](https://github.com/PrismLibrary/Prism) with it.
+You can use some frameworks like [Prism](https://github.com/PrismLibrary/Prism) with it.
 
 See sample sources in detail.
