@@ -1,10 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>NComputed</AssemblyName>
     <RootNamespace>NComputed</RootNamespace>
+    <Version>2.0.0</Version>
+    <Copyright>Copyright (c) oika 2021</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>oika</Authors>
+    <PackageProjectUrl>https://github.com/oika/NComputed</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/oika/NComputed</RepositoryUrl>
+    <PackageTags>mvvm computed reactive</PackageTags>
+    <Description>An implementation of computed property in C#/WPF.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>

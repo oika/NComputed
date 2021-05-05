@@ -5,6 +5,15 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>NComputed</AssemblyName>
     <RootNamespace>NComputed</RootNamespace>
+    <Version>2.0.0</Version>
+    <Authors>oika</Authors>
+    <Description>An implementation of computed property in C#/WPF.</Description>
+    <Copyright>Copyright (c) oika 2021</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/oika/NComputed</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/oika/NComputed</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>mvvm computed reactive</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
